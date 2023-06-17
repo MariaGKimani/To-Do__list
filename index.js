@@ -1,8 +1,8 @@
 const userContainer = document.getElementById('taskList');
-const successMessage = document.getElementById('successMessage');
+const successMessage = document.getElementById('success');
 const addBtn = document.getElementById('add');
 const deleteBtn = document.getElementById('button2');
-const taskIdInput = document.getElementById('taskId');
+const taskIdInput = document.getElementById('task_input');
 const getTodoById = async (userId) => {
   try {
     const response = await fetch(`https://dummyjson.com/todos/${userId}`);
@@ -67,9 +67,9 @@ addBtn.addEventListener('click', () => {
   const userId = parseInt(taskIdInput.value);
   if (!isNaN(userId)) {
     displayTodo(userId);
-    successMessage.textContent = 'Todo added successfully.';
+    success.textContent = 'Todo added successfully.';
   } else {
-    successMessage.textContent = 'Please enter a valid User ID.';
+    success.textContent = 'Enter a valid User ID.';
   }
 });
 deleteBtn.addEventListener('click', deleteTasks);
